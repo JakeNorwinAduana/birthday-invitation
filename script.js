@@ -25,3 +25,16 @@ envelope.addEventListener("click", function () {
     }, 1500);
 
 });
+
+const music = document.getElementById("birthdayMusic");
+const playButton = document.getElementById("playButton");
+
+playButton.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        playButton.textContent = "❚❚";
+    } else {
+        music.pause();
+        playButton.textContent = "▶";
+    }
+});

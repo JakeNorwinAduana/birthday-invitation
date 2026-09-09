@@ -851,3 +851,16 @@ footer {
 
     font-size: 12px;
 }
+
+.photo-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.photo-section img {
+    width: 60%;
+    max-width: 350px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+}
