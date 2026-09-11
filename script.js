@@ -13,17 +13,17 @@ envelope.addEventListener("click", function () {
     // Wait for the envelope animation
     setTimeout(function () {
 
-        // Show the main invitation FIRST
-        mainInvitation.style.display = "block";
-
-        // Make sure the browser recalculates the layout
-        mainInvitation.offsetHeight;
-
         // Completely remove the opening screen
         openingScreen.remove();
 
         // Reset the page position
         window.scrollTo(0, 0);
+
+        // Show the main invitation FIRST
+        mainInvitation.style.display = "block";
+
+        // Make sure the browser recalculates the layout
+        mainInvitation.offsetHeight;
 
     }, 1500);
 
