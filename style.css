@@ -6,6 +6,12 @@
 }
 
 /* Main page */
+html, body {
+    /* Matches the invitation's pink palette so nothing white
+       flashes through while the page loads or transitions */
+    background: #f8dce5;
+}
+
 body {
     font-family: Georgia, serif;
     overflow-x: hidden;
@@ -14,12 +20,14 @@ body {
 /* Opening screen */
 .opening-screen {
     min-height: 100vh;
+    min-height: 100dvh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: relative;
+    position: fixed;
+    inset: 0;
 
     /* Pastel pink background */
     background:
@@ -36,6 +44,10 @@ body {
         );
 
     padding: 30px;
+
+    z-index: 20;
+
+    transition: opacity 1.2s ease;
 }
 
 /* Everything in the center */
@@ -107,6 +119,9 @@ body {
     box-shadow: 0 15px 35px rgba(139, 74, 94, 0.25);
 
     transition: transform 0.3s ease;
+
+    overflow: visible;
+    perspective: 1000px;
 }
 
 /* Slight hover effect */
@@ -131,6 +146,14 @@ body {
         50% 48%,
         100% 0
     );
+
+    transform-origin: top center;
+
+    transition:
+        transform 1.2s ease,
+        z-index 0s linear 0.6s;
+
+    z-index: 5;
 }
 
 /* Name and date */
@@ -151,6 +174,7 @@ body {
     font-size: clamp(35px, 8vw, 55px);
 
     font-weight: normal;
+    font-family: cursive;
 }
 
 .envelope-content p {
@@ -159,6 +183,31 @@ body {
     font-size: 20px;
 
     margin-top: 10px;
+
+    letter-spacing: 1px;
+}
+
+.wax-seal {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d98fa8;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+
+    box-shadow: 0 3px 6px rgba(139, 74, 94, 0.3);
+
+    z-index: 6;
 }
 
 /* Instructions */
@@ -202,24 +251,6 @@ body {
    ENVELOPE OPENING ANIMATION
    ========================================= */
 
-/* Make the envelope capable of containing
-   the opening animation */
-.envelope {
-    overflow: visible;
-    perspective: 1000px;
-}
-
-/* The flap can rotate */
-.envelope-flap {
-    transform-origin: top center;
-
-    transition:
-        transform 1.2s ease,
-        z-index 0s linear 0.6s;
-
-    z-index: 5;
-}
-
 /* When envelope gets the "open" class */
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
@@ -235,10 +266,6 @@ body {
 }
 
 /* Fade the whole opening screen away */
-.opening-screen {
-    transition: opacity 1.2s ease;
-}
-
 .opening-screen.hide {
     opacity: 0;
     pointer-events: none;
@@ -264,6 +291,13 @@ body {
     overflow: hidden;
 
     position: relative;
+
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.main-invitation.show {
+    opacity: 1;
 }
 
 
@@ -631,46 +665,31 @@ body {
     color: #765f68;
 }
 
-.people-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 20px;
+.godparents-list {
+    list-style: none;
 
     margin-top: 30px;
-}
-
-.person-photo {
-    height: 180px;
 
     display: flex;
+    flex-direction: column;
 
-    justify-content: center;
-
-    align-items: center;
-
-    background: #f1cdd9;
-
-    border-radius: 10px;
-
-    font-size: 40px;
-
-    margin-bottom: 15px;
+    gap: 16px;
 }
 
-.person h3 {
-    color: #c47791;
-
+.godparents-list li {
     font-family: cursive;
 
     font-size: 22px;
 
-    font-weight: normal;
+    color: #c47791;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #f1cdd9;
 }
 
-.person p {
-    font-size: 13px;
+.godparents-list li:last-child {
+    border-bottom: none;
 }
 
 
@@ -700,23 +719,6 @@ body {
 
 
 /* =========================================
-   DRESS CODE
-   ========================================= */
-
-.dress-icons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 40px;
-
-    font-size: 80px;
-
-    margin: 25px;
-}
-
-
-/* =========================================
    EVENT
    ========================================= */
 
@@ -736,20 +738,25 @@ body {
     margin: 12px 0;
 }
 
-.map-placeholder {
+.venue-photo {
+    width: 100%;
+
+    max-height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    margin-top: 20px;
+}
+
+.map-embed {
+    width: 100%;
     height: 220px;
 
     margin-top: 20px;
 
-    background: #f0cfd9;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #bd718b;
+    border: 0;
 
     border-radius: 12px;
 }
@@ -775,6 +782,86 @@ body {
     margin-bottom: 25px;
 }
 
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    max-width: 400px;
+
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+
+    color: #8a6472;
+
+    font-weight: bold;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form select,
+.rsvp-form textarea {
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e3b7c5;
+
+    background: #fffafb;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    color: #765563;
+}
+
+.rsvp-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: normal;
+
+    color: #765563;
+
+    letter-spacing: normal;
+}
+
+.radio-option input {
+    accent-color: #cf829b;
+    width: 18px;
+    height: 18px;
+}
+
 .rsvp-button {
     border: none;
 
@@ -797,6 +884,16 @@ body {
 
 .rsvp-button:hover {
     transform: scale(1.05);
+}
+
+.rsvp-status {
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #8a6472;
+
+    min-height: 20px;
 }
 
 
@@ -827,4 +924,54 @@ footer {
     border-radius: 20px;
     display: block;
     margin: 0 auto;
+}
+
+
+/* =========================================
+   MOBILE — MAIN INVITATION
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .ribbon {
+        width: 88%;
+        font-size: 17px;
+    }
+
+    .butterfly {
+        font-size: 38px;
+    }
+
+    .fairy {
+        font-size: 32px;
+    }
+
+    .butterfly-1 { top: 90px; left: 10px; }
+    .butterfly-2 { top: 300px; right: 8px; }
+    .fairy-1 { top: 220px; left: 2px; }
+    .fairy-2 { top: 360px; right: 2px; }
+
+    .countdown-section,
+    .info-section,
+    .rsvp-section {
+        padding: 50px 20px;
+    }
+
+    .countdown-section h2,
+    .info-section h2,
+    .rsvp-section h2 {
+        font-size: 36px;
+    }
+
+    .count-box span {
+        font-size: 24px;
+    }
+
+    .photo-section img {
+        width: 80%;
+    }
 }
