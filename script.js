@@ -7,34 +7,45 @@ envelope.addEventListener("click", function () {
     // Open envelope
     envelope.classList.add("open");
 
-    // Wait for envelope animation
+    // Wait for the envelope opening animation to finish
     setTimeout(function () {
 
-        // Hide opening screen
-        openingScreen.classList.add("hide");
-
-        // Show main invitation
+        // Show the main invitation
         mainInvitation.style.display = "block";
 
-        // Scroll to the top of the invitation
+        // Completely remove the opening screen
+        openingScreen.style.display = "none";
+
+        // Start the invitation at the top
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: "instant"
         });
 
     }, 1500);
 
 });
 
+
+// ===============================
+// BIRTHDAY MUSIC PLAYER
+// ===============================
+
 const music = document.getElementById("birthdayMusic");
 const playButton = document.getElementById("playButton");
 
 playButton.addEventListener("click", () => {
+
     if (music.paused) {
+
         music.play();
         playButton.textContent = "❚❚";
+
     } else {
+
         music.pause();
         playButton.textContent = "▶";
+
     }
+
 });
