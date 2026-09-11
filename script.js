@@ -4,23 +4,26 @@ const mainInvitation = document.querySelector(".main-invitation");
 
 envelope.addEventListener("click", function () {
 
-    // Open envelope
+    // Prevent clicking the envelope multiple times
+    envelope.style.pointerEvents = "none";
+
+    // Open the envelope
     envelope.classList.add("open");
 
-    // Wait for the envelope opening animation to finish
+    // Wait for the envelope animation
     setTimeout(function () {
 
-        // Show the main invitation
+        // Show the main invitation FIRST
         mainInvitation.style.display = "block";
 
-        // Completely remove the opening screen
-        openingScreen.style.display = "none";
+        // Make sure the browser recalculates the layout
+        mainInvitation.offsetHeight;
 
-        // Start the invitation at the top
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
+        // Completely remove the opening screen
+        openingScreen.remove();
+
+        // Reset the page position
+        window.scrollTo(0, 0);
 
     }, 1500);
 
@@ -34,18 +37,22 @@ envelope.addEventListener("click", function () {
 const music = document.getElementById("birthdayMusic");
 const playButton = document.getElementById("playButton");
 
-playButton.addEventListener("click", () => {
+if (playButton && music) {
 
-    if (music.paused) {
+    playButton.addEventListener("click", () => {
 
-        music.play();
-        playButton.textContent = "❚❚";
+        if (music.paused) {
 
-    } else {
+            music.play();
+            playButton.textContent = "❚❚";
 
-        music.pause();
-        playButton.textContent = "▶";
+        } else {
 
-    }
+            music.pause();
+            playButton.textContent = "▶";
 
-});
+        }
+
+    });
+
+}
