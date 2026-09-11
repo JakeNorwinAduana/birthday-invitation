@@ -21,18 +21,18 @@ body {
 
     position: relative;
 
-    /* Temporary forest-like background */
+    /* Pastel pink background */
     background:
         linear-gradient(
-            rgba(70, 85, 60, 0.45),
-            rgba(70, 85, 60, 0.45)
+            rgba(245, 190, 207, 0.45),
+            rgba(245, 190, 207, 0.45)
         ),
         linear-gradient(
             135deg,
-            #52684a,
-            #a6b87a,
-            #d9d79a,
-            #65775b
+            #f3c6d5,
+            #f8dce5,
+            #fcebef,
+            #eeb8cb
         );
 
     padding: 30px;
@@ -51,9 +51,9 @@ body {
 
     margin: 0 auto -35px;
 
-    background: #b99886;
+    background: #e8a9be;
 
-    border: 15px solid #f1e2d8;
+    border: 15px solid #fce7ed;
 
     border-radius: 50%;
 
@@ -85,7 +85,7 @@ body {
 
 /* Text inside flower */
 .flower span {
-    color: #637d5d;
+    color: #b86f88;
 
     font-size: 25px;
     font-weight: bold;
@@ -98,13 +98,13 @@ body {
     width: 100%;
     height: 300px;
 
-    background: #f8f8f5;
+    background: #fffafb;
 
     position: relative;
 
     cursor: pointer;
 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 35px rgba(139, 74, 94, 0.25);
 
     transition: transform 0.3s ease;
 }
@@ -124,7 +124,7 @@ body {
     width: 100%;
     height: 100%;
 
-    background: #eeeeeb;
+    background: #f7dce5;
 
     clip-path: polygon(
         0 0,
@@ -147,21 +147,21 @@ body {
 
     border-radius: 50%;
 
-    background: #c98282;
+    background: #d98fa8;
 
-    border: 5px solid #e7c0a8;
+    border: 5px solid #f2c4d3;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #f5d7d0;
+    color: #ffe9ef;
 
     font-size: 30px;
 
     z-index: 2;
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(139, 74, 94, 0.2);
 }
 
 /* Name and date */
@@ -177,7 +177,7 @@ body {
 }
 
 .envelope-content h1 {
-    color: #718b68;
+    color: #bd718b;
 
     font-size: clamp(35px, 8vw, 55px);
 
@@ -185,7 +185,7 @@ body {
 }
 
 .envelope-content p {
-    color: #718b68;
+    color: #bd718b;
 
     font-size: 20px;
 
@@ -204,7 +204,7 @@ body {
 
     letter-spacing: 1px;
 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 4px rgba(120, 63, 80, 0.4);
 }
 
 /* Mobile adjustments */
@@ -227,6 +227,7 @@ body {
         font-size: 14px;
     }
 }
+
 
 /* =========================================
    ENVELOPE OPENING ANIMATION
@@ -281,6 +282,7 @@ body {
     pointer-events: none;
 }
 
+
 /* =========================================
    MAIN INVITATION
    ========================================= */
@@ -293,9 +295,9 @@ body {
 
     margin: 0 auto;
 
-    background: #eef2d8;
+    background: #fff0f4;
 
-    color: #63745c;
+    color: #765563;
 
     overflow: hidden;
 
@@ -319,17 +321,17 @@ body {
     background:
         radial-gradient(
             circle at 20% 20%,
-            #f6d5d5,
+            #f9d6e1,
             transparent 20%
         ),
         radial-gradient(
             circle at 80% 15%,
-            #f7c8d0,
+            #f4bfd1,
             transparent 18%
         ),
         linear-gradient(
-            #dbeedb,
-            #cbdca9
+            #fce7ed,
+            #f8d5df
         );
 }
 
@@ -338,7 +340,7 @@ body {
 
     letter-spacing: 2px;
 
-    color: #77665f;
+    color: #956f7d;
 
     margin-bottom: 20px;
 }
@@ -355,8 +357,8 @@ body {
     color: #fff;
 
     text-shadow:
-        0 2px 3px #9b766f,
-        0 0 8px #9b766f;
+        0 2px 3px #b77b8e,
+        0 0 8px #b77b8e;
 
     margin-bottom: 35px;
 }
@@ -373,7 +375,7 @@ body {
 
     padding: 12px 10px;
 
-    background: #71935f;
+    background: #d98fa8;
 
     color: white;
 
@@ -385,7 +387,7 @@ body {
 
     position: relative;
 
-    box-shadow: 0 4px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 5px rgba(139, 74, 94, 0.15);
 }
 
 .ribbon::before,
@@ -400,7 +402,7 @@ body {
 
     height: 100%;
 
-    background: #5d7c50;
+    background: #c97c97;
 
     z-index: -1;
 }
@@ -434,7 +436,7 @@ body {
 
     font-size: 30px;
 
-    color: #8f7167;
+    color: #a97887;
 
     margin: 5px;
 }
@@ -442,7 +444,7 @@ body {
 .heart {
     font-size: 45px;
 
-    color: #cf7587;
+    color: #d77f9a;
 
     margin: 20px;
 }
@@ -509,7 +511,7 @@ body {
 .music-section {
     padding: 25px 35px 40px;
 
-    background: #f1efd5;
+    background: #fff1f5;
 
     text-align: center;
 }
@@ -517,7 +519,7 @@ body {
 .music-line {
     height: 5px;
 
-    background: #ad5968;
+    background: #d58ba2;
 
     border-radius: 10px;
 
@@ -555,7 +557,7 @@ body {
 
     background: transparent;
 
-    color: #8170a5;
+    color: #b17b9b;
 
     font-size: 20px;
 }
@@ -564,15 +566,15 @@ body {
     width: 95px;
     height: 95px;
 
-    background: #b15e6b;
+    background: #d98fa8;
 
     color: white;
 
     font-size: 35px;
 
-    border: 8px solid #e5cfb4;
+    border: 8px solid #f5d4df;
 
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 8px rgba(139, 74, 94, 0.15);
 }
 
 
@@ -585,7 +587,7 @@ body {
 
     text-align: center;
 
-    background: #f8f3e5;
+    background: #fff6f8;
 }
 
 .section-label {
@@ -593,7 +595,7 @@ body {
 
     letter-spacing: 2px;
 
-    color: #9a7770;
+    color: #a47b88;
 
     margin-bottom: 12px;
 }
@@ -607,7 +609,7 @@ body {
 
     font-weight: normal;
 
-    color: #718760;
+    color: #c47791;
 
     margin-bottom: 25px;
 }
@@ -627,7 +629,7 @@ body {
 .count-box {
     padding: 15px 5px;
 
-    background: #e4e7c9;
+    background: #f4dce5;
 
     border-radius: 8px;
 }
@@ -639,7 +641,7 @@ body {
 
     font-weight: bold;
 
-    color: #7b665f;
+    color: #876674;
 }
 
 .count-box small {
@@ -658,13 +660,13 @@ body {
 
     text-align: center;
 
-    background: #e9efd5;
+    background: #fbe8ee;
 }
 
 .info-section p {
     line-height: 1.7;
 
-    color: #6d6d5d;
+    color: #765f68;
 }
 
 .people-grid {
@@ -686,7 +688,7 @@ body {
 
     align-items: center;
 
-    background: #d8d9bd;
+    background: #f1cdd9;
 
     border-radius: 10px;
 
@@ -696,7 +698,7 @@ body {
 }
 
 .person h3 {
-    color: #718760;
+    color: #c47791;
 
     font-family: cursive;
 
@@ -715,7 +717,7 @@ body {
    ========================================= */
 
 .gift-section {
-    background: #f8f3e5;
+    background: #fff6f8;
 }
 
 .gift-box {
@@ -731,7 +733,7 @@ body {
 
     margin-top: 20px;
 
-    color: #6d6d5d;
+    color: #765f68;
 }
 
 
@@ -757,7 +759,7 @@ body {
    ========================================= */
 
 .event-card {
-    background: #f8f3e5;
+    background: #fff6f8;
 
     border-radius: 12px;
 
@@ -777,7 +779,7 @@ body {
 
     margin-top: 20px;
 
-    background: #d5dac4;
+    background: #f0cfd9;
 
     display: flex;
 
@@ -785,7 +787,7 @@ body {
 
     justify-content: center;
 
-    color: #718760;
+    color: #bd718b;
 
     border-radius: 12px;
 }
@@ -800,11 +802,11 @@ body {
 
     text-align: center;
 
-    background: #dce8d0;
+    background: #f4d7e1;
 }
 
 .rsvp-section p {
-    color: #66705e;
+    color: #765f68;
 
     line-height: 1.7;
 
@@ -818,7 +820,7 @@ body {
 
     border-radius: 30px;
 
-    background: #a85d6b;
+    background: #cf829b;
 
     color: white;
 
@@ -845,7 +847,7 @@ footer {
 
     text-align: center;
 
-    background: #b8c79e;
+    background: #d69aae;
 
     color: white;
 
