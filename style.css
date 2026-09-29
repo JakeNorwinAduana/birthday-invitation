@@ -1,35 +1,55 @@
-/* Remove default browser spacing */
+/* =========================================
+   RESET
+   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Main page */
-html, body {
-    /* Matches the invitation's pink palette so nothing white
-       flashes through while the page loads or transitions */
-    background: #f8dce5;
+
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+html,
+body {
+
+    background: #eee4e5;
+
 }
+
 
 body {
+
     font-family: Georgia, serif;
+
     overflow-x: hidden;
+
+    color: #765563;
+
 }
 
-/* Opening screen */
+
+/* =========================================
+   OPENING SCREEN
+   ========================================= */
+
 .opening-screen {
+
     min-height: 100vh;
     min-height: 100dvh;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     position: fixed;
+
     inset: 0;
 
-    /* Pastel pink background */
     background:
         linear-gradient(
             rgba(245, 190, 207, 0.45),
@@ -47,17 +67,27 @@ body {
 
     z-index: 20;
 
-    transition: opacity 1.2s ease;
+    transition:
+        opacity 1.2s ease;
+
 }
 
-/* Everything in the center */
+
 .invitation {
+
     width: min(500px, 90vw);
+
     text-align: center;
+
 }
 
-/* Fake flower/card above envelope */
+
+/* =========================================
+   OPENING FLOWER
+   ========================================= */
+
 .flower {
+
     width: 180px;
     height: 180px;
 
@@ -67,9 +97,6 @@ body {
 
     border: 15px solid #fce7ed;
 
-    border-radius: 50%;
-
-    /* Makes it look more like petals */
     clip-path: polygon(
         50% 0%,
         65% 25%,
@@ -86,28 +113,40 @@ body {
     );
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     position: relative;
+
     z-index: 3;
 
     transform: rotate(-8deg);
+
 }
 
-/* Text inside flower */
+
 .flower span {
+
     color: #b86f88;
 
     font-size: 25px;
+
     font-weight: bold;
 
     transform: rotate(8deg);
+
 }
 
-/* Envelope */
+
+/* =========================================
+   ENVELOPE
+   ========================================= */
+
 .envelope {
+
     width: 100%;
+
     height: 300px;
 
     background: #fffafb;
@@ -116,21 +155,29 @@ body {
 
     cursor: pointer;
 
-    box-shadow: 0 15px 35px rgba(139, 74, 94, 0.25);
+    box-shadow:
+        0 15px 35px
+        rgba(139, 74, 94, 0.25);
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 
     overflow: visible;
+
     perspective: 1000px;
+
 }
 
-/* Slight hover effect */
+
 .envelope:hover {
+
     transform: translateY(-8px);
+
 }
 
-/* Envelope flap */
+
 .envelope-flap {
+
     position: absolute;
 
     top: 0;
@@ -154,10 +201,12 @@ body {
         z-index 0s linear 0.6s;
 
     z-index: 5;
+
 }
 
-/* Name and date */
+
 .envelope-content {
+
     position: absolute;
 
     bottom: 30px;
@@ -166,18 +215,26 @@ body {
     width: 100%;
 
     z-index: 2;
+
 }
+
 
 .envelope-content h1 {
+
     color: #bd718b;
 
-    font-size: clamp(35px, 8vw, 55px);
+    font-size:
+        clamp(35px, 8vw, 55px);
 
     font-weight: normal;
+
     font-family: cursive;
+
 }
 
+
 .envelope-content p {
+
     color: #bd718b;
 
     font-size: 20px;
@@ -185,33 +242,38 @@ body {
     margin-top: 10px;
 
     letter-spacing: 1px;
+
 }
 
+
 .wax-seal {
+
     position: absolute;
+
     top: 44%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%, -50%);
 
     width: 44px;
     height: 44px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background: #d98fa8;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 20px;
 
-    box-shadow: 0 3px 6px rgba(139, 74, 94, 0.3);
+    border-radius: 50%;
+
+    box-shadow:
+        0 3px 6px
+        rgba(139, 74, 94, 0.3);
 
     z-index: 6;
+
 }
 
-/* Instructions */
+
 .open-text {
+
     margin-top: 25px;
 
     color: white;
@@ -222,53 +284,43 @@ body {
 
     letter-spacing: 1px;
 
-    text-shadow: 0 2px 4px rgba(120, 63, 80, 0.4);
-}
+    text-shadow:
+        0 2px 4px
+        rgba(120, 63, 80, 0.4);
 
-/* Mobile adjustments */
-@media (max-width: 600px) {
-
-    .opening-screen {
-        padding: 20px;
-    }
-
-    .envelope {
-        height: 250px;
-    }
-
-    .flower {
-        width: 150px;
-        height: 150px;
-    }
-
-    .open-text {
-        font-size: 14px;
-    }
 }
 
 
 /* =========================================
-   ENVELOPE OPENING ANIMATION
+   ENVELOPE ANIMATION
    ========================================= */
 
-/* When envelope gets the "open" class */
 .envelope.open .envelope-flap {
+
     transform: rotateX(180deg);
 
     z-index: 1;
+
 }
 
-/* Move the invitation text upward */
+
 .envelope.open .envelope-content {
-    transform: translateY(-100px);
 
-    transition: transform 1.2s ease;
+    transform:
+        translateY(-100px);
+
+    transition:
+        transform 1.2s ease;
+
 }
 
-/* Fade the whole opening screen away */
+
 .opening-screen.hide {
+
     opacity: 0;
+
     pointer-events: none;
+
 }
 
 
@@ -277,14 +329,16 @@ body {
    ========================================= */
 
 .main-invitation {
+
     display: none;
 
     width: 100%;
+
     max-width: 520px;
 
     margin: 0 auto;
 
-    background: #fff0f4;
+    background: #eee4e5;
 
     color: #765563;
 
@@ -293,55 +347,315 @@ body {
     position: relative;
 
     opacity: 0;
-    transition: opacity 1.2s ease;
+
+    transition:
+        opacity 1.2s ease;
+
 }
 
+
 .main-invitation.show {
+
     opacity: 1;
+
 }
 
 
 /* =========================================
-   HERO
+   INVITATION PAGES
    ========================================= */
 
-.hero {
-    min-height: 650px;
-
-    padding: 50px 30px 30px;
-
-    text-align: center;
+.invitation-page {
 
     position: relative;
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            #f9d6e1,
-            transparent 20%
-        ),
-        radial-gradient(
-            circle at 80% 15%,
-            #f4bfd1,
-            transparent 18%
-        ),
-        linear-gradient(
-            #fce7ed,
-            #f8d5df
-        );
+    overflow: hidden;
+
+    isolation: isolate;
+
+    min-height: 700px;
+
+    border-bottom:
+        1px solid
+        rgba(196, 119, 145, 0.12);
+
 }
 
+
+/* =========================================
+   FLOWER FRAME
+   =========================================
+
+   Place the image here:
+
+   images/flowerframe.jpg
+
+*/
+
+.invitation-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("images/flowerframe.jpg");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: 100% 100%;
+
+    opacity: 0.72;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================
+   INNER PAPER
+   ========================================= */
+
+.invitation-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 40px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+}
+
+
+/* =========================================
+   PAGE CONTENT
+   ========================================= */
+
+.page-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    min-height: 700px;
+
+    padding:
+        90px 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   CELEBRANT WATERMARK
+   ========================================= */
+
+.celebrant-watermark {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("images/eli_elo.jpg");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: 75% auto;
+
+    opacity: 0.075;
+
+    filter:
+        grayscale(15%);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================
+   PAGE 1 — COVER
+   ========================================= */
+
+.cover-page {
+
+    min-height: 760px;
+
+    background:
+        #eee4e5;
+
+}
+
+
+.cover-page::after {
+
+    inset: 40px;
+
+    background:
+        rgba(255, 255, 255, 0.84);
+
+}
+
+
+.cover-page .page-content {
+
+    min-height: 760px;
+
+}
+
+
+.photo-section {
+
+    margin-bottom: 25px;
+
+}
+
+
+.photo-section img {
+
+    width: 210px;
+
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+
+    margin: 0 auto;
+
+    border:
+        8px solid
+        rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 10px 30px
+        rgba(139, 74, 94, 0.18);
+
+}
+
+
 .small-title {
-    font-size: 13px;
+
+    font-size: 12px;
 
     letter-spacing: 2px;
 
     color: #956f7d;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+
 }
 
-.hero h1 {
+
+.cover-name {
+
+    font-family: cursive;
+
+    font-size: 70px;
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    color: #c47791;
+
+}
+
+
+.cover-subtitle {
+
+    font-size: 17px;
+
+    color: #956f7d;
+
+    margin-top: 15px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.cover-date {
+
+    margin-top: 20px;
+
+    color: #956f7d;
+
+    letter-spacing: 2px;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================
+   COVER DIVIDER
+   ========================================= */
+
+.cover-divider {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #d69aae;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================
+   PAGE 2 — HERO
+   ========================================= */
+
+.hero-page {
+
+    background:
+        #eee4e5;
+
+}
+
+
+.hero-page .page-content {
+
+    min-height: 700px;
+
+}
+
+
+.hero-page h1 {
+
     font-size: 65px;
 
     line-height: 0.9;
@@ -350,13 +664,14 @@ body {
 
     font-family: cursive;
 
-    color: #fff;
+    color: #c47791;
 
     text-shadow:
-        0 2px 3px #b77b8e,
-        0 0 8px #b77b8e;
+        0 2px 3px
+        rgba(183, 123, 142, 0.35);
 
     margin-bottom: 35px;
+
 }
 
 
@@ -365,7 +680,8 @@ body {
    ========================================= */
 
 .ribbon {
-    width: 75%;
+
+    width: 78%;
 
     margin: 15px auto;
 
@@ -377,17 +693,22 @@ body {
 
     font-family: Georgia, serif;
 
-    font-size: 20px;
+    font-size: 19px;
 
     letter-spacing: 1px;
 
     position: relative;
 
-    box-shadow: 0 4px 5px rgba(139, 74, 94, 0.15);
+    box-shadow:
+        0 4px 5px
+        rgba(139, 74, 94, 0.15);
+
 }
+
 
 .ribbon::before,
 .ribbon::after {
+
     content: "";
 
     position: absolute;
@@ -401,9 +722,12 @@ body {
     background: #c97c97;
 
     z-index: -1;
+
 }
 
+
 .ribbon::before {
+
     left: -18px;
 
     clip-path: polygon(
@@ -413,9 +737,12 @@ body {
         25% 50%,
         0 25%
     );
+
 }
 
+
 .ribbon::after {
+
     right: -18px;
 
     clip-path: polygon(
@@ -425,9 +752,12 @@ body {
         100% 75%,
         0 100%
     );
+
 }
 
+
 .and-text {
+
     font-family: cursive;
 
     font-size: 30px;
@@ -435,142 +765,7 @@ body {
     color: #a97887;
 
     margin: 5px;
-}
 
-.heart {
-    font-size: 45px;
-
-    color: #d77f9a;
-
-    margin: 20px;
-}
-
-.flowers {
-    font-size: 45px;
-
-    margin-top: 30px;
-
-    letter-spacing: -10px;
-}
-
-
-/* =========================================
-   DECORATIONS
-   ========================================= */
-
-.butterfly,
-.fairy {
-    position: absolute;
-
-    z-index: 5;
-
-    pointer-events: none;
-}
-
-.butterfly {
-    font-size: 55px;
-}
-
-.butterfly-1 {
-    top: 100px;
-    left: 20px;
-
-    transform: rotate(-20deg);
-}
-
-.butterfly-2 {
-    top: 330px;
-    right: 15px;
-
-    transform: rotate(20deg);
-}
-
-.fairy {
-    font-size: 45px;
-}
-
-.fairy-1 {
-    top: 250px;
-    left: 5px;
-}
-
-.fairy-2 {
-    top: 400px;
-    right: 5px;
-}
-
-
-/* =========================================
-   MUSIC PLAYER
-   ========================================= */
-
-.music-section {
-    padding: 25px 35px 40px;
-
-    background: #fff1f5;
-
-    text-align: center;
-}
-
-.music-line {
-    height: 5px;
-
-    background: #d58ba2;
-
-    border-radius: 10px;
-
-    margin-bottom: 30px;
-}
-
-.music-player {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 18px;
-}
-
-.music-button,
-.play-button {
-    border: none;
-
-    cursor: pointer;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.music-button {
-    width: 35px;
-    height: 35px;
-
-    background: transparent;
-
-    color: #b17b9b;
-
-    font-size: 20px;
-}
-
-.play-button {
-    width: 95px;
-    height: 95px;
-
-    background: #d98fa8;
-
-    color: white;
-
-    font-size: 35px;
-
-    border: 8px solid #f5d4df;
-
-    box-shadow: 0 3px 8px rgba(139, 74, 94, 0.15);
 }
 
 
@@ -578,15 +773,23 @@ body {
    COUNTDOWN
    ========================================= */
 
-.countdown-section {
-    padding: 70px 25px;
+.countdown-page {
 
-    text-align: center;
+    background:
+        #eee4e5;
 
-    background: #fff6f8;
 }
 
+
+.countdown-page .page-content {
+
+    min-height: 700px;
+
+}
+
+
 .section-label {
+
     font-size: 12px;
 
     letter-spacing: 2px;
@@ -594,11 +797,14 @@ body {
     color: #a47b88;
 
     margin-bottom: 12px;
+
 }
 
-.countdown-section h2,
-.info-section h2,
-.rsvp-section h2 {
+
+.countdown-page h2,
+.event-page h2,
+.rsvp-page h2 {
+
     font-family: cursive;
 
     font-size: 48px;
@@ -608,29 +814,40 @@ body {
     color: #c47791;
 
     margin-bottom: 25px;
+
 }
 
+
 .countdown {
+
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 8px;
 
-    max-width: 450px;
+    width: 100%;
 
-    margin: auto;
+    max-width: 430px;
+
 }
+
 
 .count-box {
+
     padding: 15px 5px;
 
-    background: #f4dce5;
+    background:
+        rgba(244, 220, 229, 0.9);
 
     border-radius: 8px;
+
 }
 
+
 .count-box span {
+
     display: block;
 
     font-size: 30px;
@@ -638,107 +855,64 @@ body {
     font-weight: bold;
 
     color: #876674;
+
 }
 
+
 .count-box small {
+
     font-size: 9px;
 
     letter-spacing: 1px;
+
 }
 
 
 /* =========================================
-   INFORMATION SECTIONS
+   EVENT DETAILS
    ========================================= */
 
-.info-section {
-    padding: 70px 30px;
+.event-page {
 
-    text-align: center;
+    background:
+        #eee4e5;
 
-    background: #fbe8ee;
 }
 
-.info-section p {
-    line-height: 1.7;
-
-    color: #765f68;
-}
-
-.godparents-list {
-    list-style: none;
-
-    margin-top: 30px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 16px;
-}
-
-.godparents-list li {
-    font-family: cursive;
-
-    font-size: 22px;
-
-    color: #c47791;
-
-    padding-bottom: 12px;
-
-    border-bottom: 1px solid #f1cdd9;
-}
-
-.godparents-list li:last-child {
-    border-bottom: none;
-}
-
-
-/* =========================================
-   GIFTS
-   ========================================= */
-
-.gift-section {
-    background: #fff6f8;
-}
-
-.gift-box {
-    font-size: 70px;
-
-    margin: 25px;
-}
-
-.gift-section ul {
-    list-style: none;
-
-    line-height: 2.2;
-
-    margin-top: 20px;
-
-    color: #765f68;
-}
-
-
-/* =========================================
-   EVENT
-   ========================================= */
 
 .event-card {
-    background: #fff6f8;
+
+    width: 100%;
+
+    background:
+        rgba(255, 246, 248, 0.94);
 
     border-radius: 12px;
 
     padding: 25px;
 
-    margin-top: 25px;
+    margin-top: 10px;
 
     text-align: left;
+
+    box-shadow:
+        0 6px 20px
+        rgba(139, 74, 94, 0.08);
+
 }
+
 
 .event-card p {
+
     margin: 12px 0;
+
+    line-height: 1.6;
+
 }
 
+
 .venue-photo {
+
     width: 100%;
 
     max-height: 280px;
@@ -748,10 +922,14 @@ body {
     border-radius: 12px;
 
     margin-top: 20px;
+
 }
 
+
 .map-embed {
+
     width: 100%;
+
     height: 220px;
 
     margin-top: 20px;
@@ -759,6 +937,7 @@ body {
     border: 0;
 
     border-radius: 12px;
+
 }
 
 
@@ -766,134 +945,70 @@ body {
    RSVP
    ========================================= */
 
-.rsvp-section {
-    padding: 80px 30px;
+.rsvp-page {
 
-    text-align: center;
+    background:
+        #eee4e5;
 
-    background: #f4d7e1;
 }
 
-.rsvp-section p {
+
+.rsvp-page .page-content {
+
+    min-height: 1100px;
+
+    padding:
+        90px 40px;
+
+}
+
+
+.rsvp-intro {
+
     color: #765f68;
 
     line-height: 1.7;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+
 }
 
-.rsvp-form {
-    display: flex;
-    flex-direction: column;
 
-    gap: 18px;
+/* =========================================
+   GOOGLE FORM
+   ========================================= */
 
-    max-width: 400px;
+.google-form-container {
 
-    margin: 0 auto;
+    width: 100%;
 
-    text-align: left;
-}
+    max-width: 640px;
 
-.form-field {
-    display: flex;
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-.form-field label {
-    font-size: 13px;
-
-    letter-spacing: 0.5px;
-
-    color: #8a6472;
-
-    font-weight: bold;
-}
-
-.rsvp-form input[type="text"],
-.rsvp-form select,
-.rsvp-form textarea {
-    padding: 12px 14px;
-
-    border-radius: 10px;
-
-    border: 1px solid #e3b7c5;
+    margin: 20px auto 0;
 
     background: #fffafb;
 
-    font-family: Georgia, serif;
+    border-radius: 16px;
 
-    font-size: 15px;
+    overflow: hidden;
 
-    color: #765563;
+    box-shadow:
+        0 8px 25px
+        rgba(139, 74, 94, 0.12);
+
 }
 
-.rsvp-form textarea {
-    resize: vertical;
-    min-height: 80px;
-}
 
-.radio-group {
-    display: flex;
-    flex-direction: column;
+.google-form-container iframe {
 
-    gap: 10px;
-}
+    display: block;
 
-.radio-option {
-    display: flex;
-    align-items: center;
+    width: 100%;
 
-    gap: 10px;
+    min-height: 900px;
 
-    font-size: 15px;
-    font-weight: normal;
-
-    color: #765563;
-
-    letter-spacing: normal;
-}
-
-.radio-option input {
-    accent-color: #cf829b;
-    width: 18px;
-    height: 18px;
-}
-
-.rsvp-button {
     border: none;
 
-    padding: 16px 30px;
-
-    border-radius: 30px;
-
-    background: #cf829b;
-
-    color: white;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition: transform 0.2s;
-}
-
-.rsvp-button:hover {
-    transform: scale(1.05);
-}
-
-.rsvp-status {
-    text-align: center;
-
-    font-size: 14px;
-
-    color: #8a6472;
-
-    min-height: 20px;
 }
 
 
@@ -901,77 +1016,200 @@ body {
    FOOTER
    ========================================= */
 
-footer {
-    padding: 30px;
+.footer-page {
 
-    text-align: center;
+    min-height: 300px;
 
-    background: #d69aae;
+    background:
+        #d69aae;
 
     color: white;
 
-    font-size: 12px;
 }
 
-.photo-section {
-    text-align: center;
-    padding: 20px;
+
+.footer-page::before {
+
+    opacity: 0.25;
+
 }
 
-.photo-section img {
-    width: 60%;
-    max-width: 350px;
-    border-radius: 20px;
-    display: block;
-    margin: 0 auto;
+
+.footer-page::after {
+
+    background:
+        rgba(214, 154, 174, 0.45);
+
+}
+
+
+.footer-page .page-content {
+
+    min-height: 300px;
+
+}
+
+
+.footer-name {
+
+    font-family: cursive;
+
+    font-size: 45px;
+
+    margin-top: 20px;
+
 }
 
 
 /* =========================================
-   MOBILE — MAIN INVITATION
+   MOBILE
    ========================================= */
 
 @media (max-width: 600px) {
 
-    .hero h1 {
-        font-size: 48px;
+
+    .opening-screen {
+
+        padding: 20px;
+
     }
 
-    .ribbon {
-        width: 88%;
-        font-size: 17px;
+
+    .envelope {
+
+        height: 250px;
+
     }
 
-    .butterfly {
-        font-size: 38px;
+
+    .flower {
+
+        width: 150px;
+        height: 150px;
+
     }
 
-    .fairy {
-        font-size: 32px;
+
+    .open-text {
+
+        font-size: 14px;
+
     }
 
-    .butterfly-1 { top: 90px; left: 10px; }
-    .butterfly-2 { top: 300px; right: 8px; }
-    .fairy-1 { top: 220px; left: 2px; }
-    .fairy-2 { top: 360px; right: 2px; }
 
-    .countdown-section,
-    .info-section,
-    .rsvp-section {
-        padding: 50px 20px;
+    .invitation-page::before {
+
+        background-size:
+            100% 100%;
+
+        opacity: 0.68;
+
     }
 
-    .countdown-section h2,
-    .info-section h2,
-    .rsvp-section h2 {
-        font-size: 36px;
+
+    .invitation-page::after {
+
+        inset: 30px;
+
     }
 
-    .count-box span {
-        font-size: 24px;
+
+    .page-content {
+
+        padding:
+            80px 40px;
+
     }
+
+
+    .cover-page,
+    .cover-page .page-content {
+
+        min-height: 700px;
+
+    }
+
 
     .photo-section img {
-        width: 80%;
+
+        width: 175px;
+        height: 175px;
+
     }
+
+
+    .cover-name {
+
+        font-size: 58px;
+
+    }
+
+
+    .cover-subtitle {
+
+        font-size: 15px;
+
+    }
+
+
+    .hero-page h1 {
+
+        font-size: 50px;
+
+    }
+
+
+    .ribbon {
+
+        width: 90%;
+
+        font-size: 16px;
+
+    }
+
+
+    .countdown-page h2,
+    .event-page h2,
+    .rsvp-page h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .count-box span {
+
+        font-size: 22px;
+
+    }
+
+
+    .count-box small {
+
+        font-size: 8px;
+
+    }
+
+
+    .event-card {
+
+        padding: 20px;
+
+    }
+
+
+    .rsvp-page .page-content {
+
+        padding:
+            80px 30px;
+
+    }
+
+
+    .google-form-container iframe {
+
+        min-height: 1000px;
+
+    }
+
 }

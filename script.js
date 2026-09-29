@@ -1,51 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     setupEnvelope();
+
     startCountdown();
-    setupMusic();
-    setupRSVP();
 
 });
 
 
-// ===============================
-// ENVELOPE -> MAIN INVITATION
-// ===============================
+// =========================================
+// ENVELOPE → MAIN INVITATION
+// =========================================
 
 function setupEnvelope() {
 
-    const envelope = document.getElementById("envelope");
-    const openingScreen = document.getElementById("openingScreen");
-    const mainInvitation = document.getElementById("mainInvitation");
+    const envelope =
+        document.getElementById("envelope");
 
-    if (!envelope || !openingScreen || !mainInvitation) return;
+    const openingScreen =
+        document.getElementById("openingScreen");
+
+    const mainInvitation =
+        document.getElementById("mainInvitation");
+
+
+    if (
+        !envelope ||
+        !openingScreen ||
+        !mainInvitation
+    ) {
+        return;
+    }
+
 
     envelope.addEventListener("click", () => {
 
-        // Prevent clicking the envelope multiple times
+        // Prevent multiple clicks
         envelope.style.pointerEvents = "none";
 
-        // Play the flap-opening animation
+
+        // Open envelope
         envelope.classList.add("open");
 
-        // Once the flap has opened, cross-fade the two screens
+
+        // Reveal main invitation
         setTimeout(() => {
 
-            // Reveal the main invitation underneath and fade it in
-            mainInvitation.style.display = "block";
-            // Force a reflow so the opacity transition actually runs
+            mainInvitation.style.display =
+                "block";
+
+
+            // Force browser reflow
             mainInvitation.offsetHeight;
+
+
             mainInvitation.classList.add("show");
 
-            // Fade the opening screen out at the same time
+
+            // Fade opening screen
             openingScreen.classList.add("hide");
 
-            // Once the fade-out finishes, remove the opening screen
-            // completely so no invisible/white layer is left behind
+
+            // Remove opening screen
             setTimeout(() => {
+
                 openingScreen.remove();
-                window.scrollTo(0, 0);
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "instant"
+                });
+
+
             }, 1200);
+
 
         }, 1200);
 
@@ -54,121 +82,134 @@ function setupEnvelope() {
 }
 
 
-// ===============================
+// =========================================
 // COUNTDOWN
-// ===============================
+// =========================================
 
 function startCountdown() {
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
+    const daysEl =
+        document.getElementById("days");
 
-    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+    const hoursEl =
+        document.getElementById("hours");
 
-    // October 17, 2026, 10:00 AM Philippine time
-    const targetDate = new Date("2026-10-17T10:00:00+08:00").getTime();
+    const minutesEl =
+        document.getElementById("minutes");
 
-    function pad(num) {
-        return String(num).padStart(2, "0");
+    const secondsEl =
+        document.getElementById("seconds");
+
+
+    if (
+        !daysEl ||
+        !hoursEl ||
+        !minutesEl ||
+        !secondsEl
+    ) {
+        return;
     }
+
+
+    /*
+        Event:
+
+        October 17, 2026
+        10:00 AM
+        Philippine Time (UTC+8)
+    */
+
+    const targetDate =
+        new Date(
+            "2026-10-17T10:00:00+08:00"
+        ).getTime();
+
+
+    function pad(number) {
+
+        return String(number)
+            .padStart(2, "0");
+
+    }
+
 
     function update() {
 
-        const now = Date.now();
-        let diff = targetDate - now;
+        const now =
+            Date.now();
 
-        if (diff < 0) diff = 0;
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
+        let difference =
+            targetDate - now;
 
-        daysEl.textContent = pad(days);
-        hoursEl.textContent = pad(hours);
-        minutesEl.textContent = pad(minutes);
-        secondsEl.textContent = pad(seconds);
+
+        // Keep countdown at zero
+        // after the event starts.
+
+        if (difference < 0) {
+
+            difference = 0;
+
+        }
+
+
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (
+                    difference /
+                    (1000 * 60 * 60)
+                ) % 24
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    difference /
+                    (1000 * 60)
+                ) % 60
+            );
+
+
+        const seconds =
+            Math.floor(
+                (
+                    difference /
+                    1000
+                ) % 60
+            );
+
+
+        daysEl.textContent =
+            pad(days);
+
+        hoursEl.textContent =
+            pad(hours);
+
+        minutesEl.textContent =
+            pad(minutes);
+
+        secondsEl.textContent =
+            pad(seconds);
 
     }
 
+
+    // Initial update
     update();
-    setInterval(update, 1000);
-
-}
 
 
-// ===============================
-// BIRTHDAY MUSIC PLAYER
-// ===============================
-
-function setupMusic() {
-
-    const music = document.getElementById("birthdayMusic");
-    const playButton = document.getElementById("playButton");
-
-    if (!playButton || !music) return;
-
-    playButton.addEventListener("click", () => {
-
-        if (music.paused) {
-
-            music.play();
-            playButton.textContent = "❚❚";
-
-        } else {
-
-            music.pause();
-            playButton.textContent = "▶";
-
-        }
-
-    });
-
-}
-
-
-// ===============================
-// RSVP FORM
-// ===============================
-
-function setupRSVP() {
-
-    const form = document.getElementById("rsvpForm");
-    const status = document.getElementById("rsvpStatus");
-
-    if (!form || !status) return;
-
-    form.addEventListener("submit", async (event) => {
-
-        event.preventDefault();
-
-        const submitButton = form.querySelector(".rsvp-button");
-        submitButton.disabled = true;
-        status.textContent = "Sending...";
-
-        try {
-
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: new FormData(form),
-                headers: { "Accept": "application/json" }
-            });
-
-            if (response.ok) {
-                status.textContent = "Thank you! Your RSVP has been received. 💌";
-                form.reset();
-            } else {
-                status.textContent = "Something went wrong. Please try again.";
-                submitButton.disabled = false;
-            }
-
-        } catch (error) {
-            status.textContent = "Something went wrong. Please check your connection and try again.";
-            submitButton.disabled = false;
-        }
-
-    });
+    // Update every second
+    setInterval(
+        update,
+        1000
+    );
 
 }

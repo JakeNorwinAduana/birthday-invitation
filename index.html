@@ -1,48 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>Elora's 1st Birthday & Dedication</title>
 
-    <meta property="og:title" content="You're Invited!">
-    <meta property="og:description" content="Join us in celebrating Elora's 1st Birthday and Dedication!">
-    <meta property="og:image" content="https://jakenorwinaduana.github.io/birthday-invitation/images/eli_elo.jpg">
-    <meta property="og:url" content="https://jakenorwinaduana.github.io/birthday-invitation/">
-    <meta property="og:type" content="website">
+
+    <!-- =========================================
+         OPEN GRAPH / MESSENGER PREVIEW
+         ========================================= -->
+
+    <meta
+        property="og:title"
+        content="You're Invited!"
+    >
+
+    <meta
+        property="og:description"
+        content="Join us in celebrating Elora's 1st Birthday and Dedication!"
+    >
+
+    <meta
+        property="og:image"
+        content="https://jakenorwinaduana.github.io/birthday-invitation/images/eli_elo.jpg"
+    >
+
+    <meta
+        property="og:url"
+        content="https://jakenorwinaduana.github.io/birthday-invitation/"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
+
 
     <!-- =========================================
          OPENING SCREEN
          ========================================= -->
 
-    <section class="opening-screen" id="openingScreen">
+    <section
+        class="opening-screen"
+        id="openingScreen"
+    >
 
         <div class="invitation">
 
             <div class="flower">
-                <span>You're<br>invited!</span>
+                <span>
+                    You're<br>
+                    invited!
+                </span>
             </div>
 
-            <div class="envelope" id="envelope">
+
+            <div
+                class="envelope"
+                id="envelope"
+            >
 
                 <div class="envelope-flap"></div>
 
+
                 <div class="wax-seal">
-                    ♥
                 </div>
 
+
                 <div class="envelope-content">
-                    <h1>Elora</h1>
-                    <p>10 · 17 · 26</p>
+
+                    <h1>
+                        Elora
+                    </h1>
+
+                    <p>
+                        10 · 17 · 26
+                    </p>
+
                 </div>
 
             </div>
+
 
             <p class="open-text">
                 TAP THE ENVELOPE TO OPEN
@@ -53,278 +106,360 @@
     </section>
 
 
+
     <!-- =========================================
          MAIN INVITATION
          ========================================= -->
 
-    <main class="main-invitation" id="mainInvitation">
-
-        <!-- Decorative elements -->
-        <div class="butterfly butterfly-1">🦋</div>
-        <div class="butterfly butterfly-2">🦋</div>
-
-        <div class="fairy fairy-1">🧚</div>
-        <div class="fairy fairy-2">🧚</div>
-
-        <!-- Baby Photo -->
-        <section class="photo-section">
-            <img src="images/eli_elo.jpg" alt="Elora">
-        </section>
-
-        <!-- Hero invitation -->
-        <section class="hero">
-
-            <p class="small-title">
-                AS WE CELEBRATE
-            </p>
-
-            <h1>
-                Elora's
-            </h1>
-
-            <div class="ribbon">
-                <span>1ST BIRTHDAY</span>
-            </div>
-
-            <p class="and-text">and</p>
-
-            <div class="ribbon">
-                <span>DEDICATION</span>
-            </div>
-
-            <div class="heart">♡</div>
-
-            <div class="flowers">
-                🌸 🌷 🌼 🌷 🌸
-            </div>
-
-        </section>
-
-        <!-- Music player -->
-        <section class="music-section">
-
-            <div class="music-line"></div>
-
-            <div class="music-player">
-
-                <button class="music-button">↶</button>
-                <button class="music-button">◀</button>
-
-                <button class="play-button" id="playButton">▶</button>
-
-                <button class="music-button">▶|</button>
-                <button class="music-button">🔊</button>
-
-            </div>
-
-            <audio id="birthdayMusic" loop>
-                <source src="" type="audio/mpeg">
-            </audio>
-
-        </section>
+    <main
+        class="main-invitation"
+        id="mainInvitation"
+    >
 
 
-        <!-- Countdown -->
-        <section class="countdown-section">
+        <!-- =====================================
+             PAGE 1 — COVER
+             ===================================== -->
 
-            <p class="section-label">
-                COUNTDOWN TO THE CELEBRATION
-            </p>
+        <section
+            class="invitation-page cover-page"
+        >
 
-            <h2>
-                The Big Day
-            </h2>
+            <!-- Faded celebrant watermark -->
 
-            <div class="countdown">
+            <div class="celebrant-watermark"></div>
 
-                <div class="count-box">
-                    <span id="days">00</span>
-                    <small>DAYS</small>
+
+            <div class="page-content">
+
+                <p class="small-title">
+                    YOU'RE INVITED TO CELEBRATE
+                </p>
+
+
+                <div class="photo-section">
+
+                    <img
+                        src="images/eli_elo.jpg"
+                        alt="Elora"
+                    >
+
                 </div>
 
-                <div class="count-box">
-                    <span id="hours">00</span>
-                    <small>HOURS</small>
+
+                <h1 class="cover-name">
+                    Elora
+                </h1>
+
+
+                <p class="cover-subtitle">
+                    1st Birthday & Dedication
+                </p>
+
+
+                <p class="cover-date">
+                    October 17, 2026
+                </p>
+
+
+                <div class="cover-divider"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PAGE 2 — BIRTHDAY & DEDICATION
+             ===================================== -->
+
+        <section
+            class="invitation-page hero-page"
+        >
+
+            <div class="page-content">
+
+                <p class="small-title">
+                    AS WE CELEBRATE
+                </p>
+
+
+                <h1>
+                    Elora's
+                </h1>
+
+
+                <div class="ribbon">
+                    <span>
+                        1ST BIRTHDAY
+                    </span>
                 </div>
 
-                <div class="count-box">
-                    <span id="minutes">00</span>
-                    <small>MINUTES</small>
+
+                <p class="and-text">
+                    and
+                </p>
+
+
+                <div class="ribbon">
+                    <span>
+                        DEDICATION
+                    </span>
                 </div>
 
-                <div class="count-box">
-                    <span id="seconds">00</span>
-                    <small>SECONDS</small>
-                </div>
 
             </div>
 
         </section>
 
 
-        <!-- Godparents -->
-        <section class="info-section">
 
-            <p class="section-label">OUR SPECIAL PEOPLE</p>
+        <!-- =====================================
+             PAGE 3 — COUNTDOWN
+             ===================================== -->
 
-            <h2>Godparents</h2>
+        <section
+            class="invitation-page countdown-page"
+        >
 
-            <p>
-                To the wonderful people who will guide,
-                support, and love our little one.
-            </p>
+            <div class="page-content">
 
-            <ul class="godparents-list">
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-                <li>Godparent Name</li>
-            </ul>
-
-        </section>
+                <p class="section-label">
+                    COUNTDOWN TO THE CELEBRATION
+                </p>
 
 
-        <!-- Gift ideas -->
-        <section class="info-section gift-section">
-
-            <p class="section-label">A LITTLE NOTE</p>
-
-            <h2>Gift Ideas</h2>
-
-            <p>
-                Your presence is already the greatest gift.
-                But if you would like to give something,
-                here are some ideas.
-            </p>
-
-            <div class="gift-box">
-                🎁
-            </div>
-
-            <ul>
-                <li>👶 Baby essentials</li>
-                <li>📚 Children's books</li>
-                <li>🧸 Toys</li>
-                <li>💌 Cash gifts</li>
-            </ul>
-
-        </section>
+                <h2>
+                    The Big Day
+                </h2>
 
 
-        <!-- Venue -->
-        <section class="info-section">
+                <div class="countdown">
 
-            <p class="section-label">WHERE TO FIND US</p>
+                    <div class="count-box">
 
-            <h2>Event Details</h2>
+                        <span id="days">
+                            00
+                        </span>
 
-            <div class="event-card">
+                        <small>
+                            DAYS
+                        </small>
 
-                <p>📅 <strong>October 17, 2026</strong></p>
-
-                <p>⏰ <strong>10:00 AM</strong></p>
-
-                <p>📍 <strong>Avida Settings Altaraza Clubhouse</strong><br>
-                    Q3MH+V3, SJDM, Bulacan</p>
-
-            </div>
-
-            <img class="venue-photo" src="images/venue.jpg" alt="Avida Settings Altaraza Clubhouse">
-
-            <iframe
-                class="map-embed"
-                src="https://www.google.com/maps?q=Q3MH%2BV3+SJDM+Bulacan&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-
-        </section>
-
-
-        <!-- RSVP -->
-        <section class="rsvp-section">
-
-            <p class="section-label">
-                WE HOPE YOU CAN JOIN US
-            </p>
-
-            <h2>RSVP</h2>
-
-            <p>
-                Please let us know if you'll be celebrating
-                with us on or before October 3, 2026.
-            </p>
-
-            <form class="rsvp-form" id="rsvpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-                <div class="form-field">
-                    <label for="rsvpName">Full Name</label>
-                    <input type="text" id="rsvpName" name="Name" placeholder="Your full name" required>
-                </div>
-
-                <div class="form-field">
-                    <label for="rsvpContact">Email or Mobile Number</label>
-                    <input type="text" id="rsvpContact" name="Contact" placeholder="So we can reach you" required>
-                </div>
-
-                <div class="form-field">
-                    <label>Will you be attending?</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="Attending" value="Joyfully Accepts" required>
-                            Joyfully accepts
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="Attending" value="Regretfully Declines" required>
-                            Regretfully declines
-                        </label>
                     </div>
+
+
+                    <div class="count-box">
+
+                        <span id="hours">
+                            00
+                        </span>
+
+                        <small>
+                            HOURS
+                        </small>
+
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span id="minutes">
+                            00
+                        </span>
+
+                        <small>
+                            MINUTES
+                        </small>
+
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span id="seconds">
+                            00
+                        </span>
+
+                        <small>
+                            SECONDS
+                        </small>
+
+                    </div>
+
                 </div>
 
-                <div class="form-field">
-                    <label for="rsvpGuests">Number of Guests (including you)</label>
-                    <select id="rsvpGuests" name="Guests">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-
-                <div class="form-field">
-                    <label for="rsvpAllergies">Any allergies or dietary restrictions?</label>
-                    <input type="text" id="rsvpAllergies" name="Allergies" placeholder="Optional">
-                </div>
-
-                <div class="form-field">
-                    <label for="rsvpMessage">A message for Elora</label>
-                    <textarea id="rsvpMessage" name="Message" placeholder="Optional"></textarea>
-                </div>
-
-                <button type="submit" class="rsvp-button">CONFIRM ATTENDANCE</button>
-
-                <p class="rsvp-status" id="rsvpStatus"></p>
-
-            </form>
+            </div>
 
         </section>
 
 
-        <!-- Footer -->
-        <footer>
-            <p>
-                Made with ♡ for a very special birthday
-            </p>
+
+        <!-- =====================================
+             PAGE 4 — EVENT DETAILS
+             ===================================== -->
+
+        <section
+            class="invitation-page event-page"
+        >
+
+            <div class="page-content">
+
+                <p class="section-label">
+                    WHERE TO FIND US
+                </p>
+
+
+                <h2>
+                    Event Details
+                </h2>
+
+
+                <div class="event-card">
+
+                    <p>
+                        <strong>
+                            Date
+                        </strong>
+                        <br>
+                        October 17, 2026
+                    </p>
+
+
+                    <p>
+                        <strong>
+                            Time
+                        </strong>
+                        <br>
+                        10:00 AM
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Venue
+                        </strong>
+
+                        <br>
+
+                        Avida Settings Altaraza Clubhouse
+
+                        <br>
+
+                        Q3MH+V3, SJDM, Bulacan
+
+                    </p>
+
+                </div>
+
+
+                <img
+                    class="venue-photo"
+                    src="images/venue.jpg"
+                    alt="Avida Settings Altaraza Clubhouse"
+                >
+
+
+                <iframe
+                    class="map-embed"
+                    src="https://www.google.com/maps?q=Q3MH%2BV3+SJDM+Bulacan&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PAGE 5 — RSVP
+             ===================================== -->
+
+        <section
+            class="invitation-page rsvp-page"
+        >
+
+            <div class="page-content">
+
+                <p class="section-label">
+                    WE HOPE YOU CAN JOIN US
+                </p>
+
+
+                <h2>
+                    RSVP
+                </h2>
+
+
+                <p class="rsvp-intro">
+
+                    Please let us know if you'll be
+                    celebrating with us on or before
+                    October 3, 2026.
+
+                </p>
+
+
+                <!-- =================================
+                     GOOGLE FORM
+                     ================================= -->
+
+                <div class="google-form-container">
+
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfPRaHF9YeoL5WHtUnf0sFCUCZTrwRrUNqLgaH1U_p1M5Gaow/viewform?usp=publish-editor"
+                        width="100%"
+                        height="900"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0">
+
+                        Loading RSVP form...
+
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+             ===================================== -->
+
+        <footer
+            class="invitation-page footer-page"
+        >
+
+            <div class="page-content">
+
+                <p>
+                    Made with love for a very special birthday
+                </p>
+
+
+                <p class="footer-name">
+                    Elora
+                </p>
+
+            </div>
+
         </footer>
 
+
     </main>
+
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
