@@ -1,215 +1,135 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+document.addEventListener("DOMContentLoaded", function () {
     setupEnvelope();
-
     startCountdown();
-
 });
 
 
-// =========================================
-// ENVELOPE → MAIN INVITATION
-// =========================================
+/* =========================================
+   ENVELOPE
+========================================= */
 
 function setupEnvelope() {
 
-    const envelope =
-        document.getElementById("envelope");
+    const envelope = document.getElementById("envelope");
+    const openingScreen = document.getElementById("openingScreen");
+    const mainInvitation = document.getElementById("mainInvitation");
 
-    const openingScreen =
-        document.getElementById("openingScreen");
-
-    const mainInvitation =
-        document.getElementById("mainInvitation");
-
-
-    if (
-        !envelope ||
-        !openingScreen ||
-        !mainInvitation
-    ) {
+    if (!envelope || !openingScreen || !mainInvitation) {
         return;
     }
 
+    envelope.addEventListener("click", function () {
 
-    envelope.addEventListener("click", () => {
+        if (envelope.classList.contains("open")) {
+            return;
+        }
 
-        // Prevent multiple clicks
         envelope.style.pointerEvents = "none";
 
-
-        // Open envelope
         envelope.classList.add("open");
 
 
-        // Reveal main invitation
-        setTimeout(() => {
-
-            mainInvitation.style.display =
-                "block";
-
-
-            // Force browser reflow
-            mainInvitation.offsetHeight;
-
+        setTimeout(function () {
 
             mainInvitation.classList.add("show");
 
-
-            // Fade opening screen
             openingScreen.classList.add("hide");
-
-
-            // Remove opening screen
-            setTimeout(() => {
-
-                openingScreen.remove();
-
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "instant"
-                });
-
-
-            }, 1200);
-
 
         }, 1200);
 
-    });
 
+        setTimeout(function () {
+
+            openingScreen.remove();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
+
+        }, 2200);
+
+    });
 }
 
 
-// =========================================
-// COUNTDOWN
-// =========================================
+/* =========================================
+   COUNTDOWN
+========================================= */
 
 function startCountdown() {
 
-    const daysEl =
-        document.getElementById("days");
-
-    const hoursEl =
-        document.getElementById("hours");
-
-    const minutesEl =
-        document.getElementById("minutes");
-
-    const secondsEl =
-        document.getElementById("seconds");
-
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
 
     if (
-        !daysEl ||
-        !hoursEl ||
-        !minutesEl ||
-        !secondsEl
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
     ) {
         return;
     }
 
 
-    /*
-        Event:
-
-        October 17, 2026
-        10:00 AM
-        Philippine Time (UTC+8)
-    */
-
     const targetDate =
-        new Date(
-            "2026-10-17T10:00:00+08:00"
-        ).getTime();
+        new Date("2026-10-17T10:00:00+08:00");
 
 
-    function pad(number) {
+    function updateCountdown() {
 
-        return String(number)
-            .padStart(2, "0");
-
-    }
-
-
-    function update() {
-
-        const now =
-            Date.now();
-
+        const now = new Date();
 
         let difference =
-            targetDate - now;
+            targetDate.getTime() - now.getTime();
 
-
-        // Keep countdown at zero
-        // after the event starts.
 
         if (difference < 0) {
-
             difference = 0;
-
         }
 
 
         const days =
             Math.floor(
-                difference /
-                (1000 * 60 * 60 * 24)
+                difference / (1000 * 60 * 60 * 24)
             );
 
 
         const hours =
             Math.floor(
-                (
-                    difference /
-                    (1000 * 60 * 60)
-                ) % 24
+                (difference / (1000 * 60 * 60)) % 24
             );
 
 
         const minutes =
             Math.floor(
-                (
-                    difference /
-                    (1000 * 60)
-                ) % 60
+                (difference / (1000 * 60)) % 60
             );
 
 
         const seconds =
             Math.floor(
-                (
-                    difference /
-                    1000
-                ) % 60
+                (difference / 1000) % 60
             );
 
 
-        daysEl.textContent =
-            pad(days);
+        daysElement.textContent =
+            String(days).padStart(2, "0");
 
-        hoursEl.textContent =
-            pad(hours);
+        hoursElement.textContent =
+            String(hours).padStart(2, "0");
 
-        minutesEl.textContent =
-            pad(minutes);
+        minutesElement.textContent =
+            String(minutes).padStart(2, "0");
 
-        secondsEl.textContent =
-            pad(seconds);
-
+        secondsElement.textContent =
+            String(seconds).padStart(2, "0");
     }
 
 
-    // Initial update
-    update();
+    updateCountdown();
 
-
-    // Update every second
-    setInterval(
-        update,
-        1000
-    );
-
+    setInterval(updateCountdown, 1000);
 }
