@@ -1,118 +1,121 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
     setupEnvelope();
     startCountdown();
+
 });
 
 
-/* =========================================
-   ENVELOPE
-========================================= */
+/* ================================================= */
+/* ENVELOPE */
+/* ================================================= */
 
 function setupEnvelope() {
 
     const envelope = document.getElementById("envelope");
     const openingScreen = document.getElementById("openingScreen");
-    const mainInvitation = document.getElementById("mainInvitation");
 
-    if (!envelope || !openingScreen || !mainInvitation) {
-        return;
-    }
+    if (!envelope || !openingScreen) return;
 
-    envelope.addEventListener("click", function () {
+
+    envelope.addEventListener("click", () => {
 
         if (envelope.classList.contains("open")) {
             return;
         }
 
-        envelope.style.pointerEvents = "none";
 
         envelope.classList.add("open");
 
 
-        setTimeout(function () {
+        setTimeout(() => {
 
-            mainInvitation.classList.add("show");
+            document.body.style.overflowY = "auto";
 
-            openingScreen.classList.add("hide");
+        }, 500);
+
+
+        setTimeout(() => {
+
+            openingScreen.classList.add("hidden");
 
         }, 1200);
 
-
-        setTimeout(function () {
-
-            openingScreen.remove();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "instant"
-            });
-
-        }, 2200);
-
     });
+
 }
 
 
-/* =========================================
-   COUNTDOWN
-========================================= */
+/* ================================================= */
+/* COUNTDOWN */
+/* ================================================= */
 
 function startCountdown() {
 
-    const daysElement = document.getElementById("days");
-    const hoursElement = document.getElementById("hours");
-    const minutesElement = document.getElementById("minutes");
-    const secondsElement = document.getElementById("seconds");
-
-    if (
-        !daysElement ||
-        !hoursElement ||
-        !minutesElement ||
-        !secondsElement
-    ) {
-        return;
-    }
-
-
-    const targetDate =
-        new Date("2026-10-17T10:00:00+08:00");
+    const targetDate = new Date(
+        "2026-10-17T10:00:00+08:00"
+    ).getTime();
 
 
     function updateCountdown() {
 
-        const now = new Date();
+        const now = new Date().getTime();
 
-        let difference =
-            targetDate.getTime() - now.getTime();
+        const difference = targetDate - now;
 
 
-        if (difference < 0) {
-            difference = 0;
+        const daysElement =
+            document.getElementById("days");
+
+        const hoursElement =
+            document.getElementById("hours");
+
+        const minutesElement =
+            document.getElementById("minutes");
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+
+        if (
+            !daysElement ||
+            !hoursElement ||
+            !minutesElement ||
+            !secondsElement
+        ) {
+            return;
         }
 
 
-        const days =
-            Math.floor(
-                difference / (1000 * 60 * 60 * 24)
-            );
+        if (difference <= 0) {
+
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            return;
+        }
 
 
-        const hours =
-            Math.floor(
-                (difference / (1000 * 60 * 60)) % 24
-            );
+        const days = Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
 
 
-        const minutes =
-            Math.floor(
-                (difference / (1000 * 60)) % 60
-            );
+        const hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
 
 
-        const seconds =
-            Math.floor(
-                (difference / 1000) % 60
-            );
+        const minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+
+
+        const seconds = Math.floor(
+            (difference / 1000) % 60
+        );
 
 
         daysElement.textContent =
@@ -126,10 +129,12 @@ function startCountdown() {
 
         secondsElement.textContent =
             String(seconds).padStart(2, "0");
+
     }
 
 
     updateCountdown();
 
     setInterval(updateCountdown, 1000);
+
 }
