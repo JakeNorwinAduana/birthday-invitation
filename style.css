@@ -1131,7 +1131,7 @@ body {
     }
 
     .one-photo {
-        top: 35px;
+        top: 150px;
 
         width: 275px;
         height: 275px;
@@ -1234,6 +1234,6 @@ body {
         width: 245px;
         height: 245px;
 
-        top: 35px;
+        top: 150px;
     }
 }
