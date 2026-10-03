@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
 
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     background: #eee4e5;
@@ -21,9 +18,9 @@ body {
 }
 
 
-/* ================================================= */
-/* OPENING SCREEN */
-/* ================================================= */
+/* =========================
+   OPENING SCREEN
+========================= */
 
 .opening-screen {
     position: fixed;
@@ -48,7 +45,6 @@ body {
         visibility 0.8s ease;
 }
 
-
 .opening-screen.hidden {
     opacity: 0;
     visibility: hidden;
@@ -56,9 +52,9 @@ body {
 }
 
 
-/* ================================================= */
-/* BEAUTIFUL ENVELOPE */
-/* ================================================= */
+/* =========================
+   ENVELOPE
+========================= */
 
 .envelope {
     position: relative;
@@ -68,19 +64,17 @@ body {
     cursor: pointer;
 
     filter:
-        drop-shadow(0 20px 28px rgba(70, 45, 50, 0.18));
+        drop-shadow(
+            0 20px 28px rgba(70,45,50,0.18)
+        );
 
     transition:
         transform 0.35s ease;
 }
 
-
 .envelope:hover {
     transform: translateY(-5px);
 }
-
-
-/* ENVELOPE BODY */
 
 .envelope-back {
     position: absolute;
@@ -95,18 +89,14 @@ body {
         );
 
     border-radius: 7px;
-
     overflow: hidden;
 
-    border: 1px solid rgba(151, 83, 100, 0.18);
+    border: 1px solid rgba(151,83,100,0.18);
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.65),
         inset 0 -5px 12px rgba(130,70,85,0.08);
 }
-
-
-/* INNER PAPER TEXTURE */
 
 .envelope-back::before {
     content: "";
@@ -127,9 +117,6 @@ body {
 
     opacity: 0.8;
 }
-
-
-/* LOWER ENVELOPE FOLDS */
 
 .envelope-back::after {
     content: "";
@@ -155,7 +142,7 @@ body {
 }
 
 
-/* LETTER PAPER */
+/* paper */
 
 .envelope-paper {
     position: absolute;
@@ -187,13 +174,12 @@ body {
     z-index: 2;
 }
 
-
 .envelope.open .envelope-paper {
     transform: translateY(-105px);
 }
 
 
-/* ENVELOPE FLAP */
+/* flap */
 
 .envelope-flap {
     position: absolute;
@@ -221,7 +207,6 @@ body {
         transform 0.8s ease;
 }
 
-
 .envelope-flap::after {
     content: "";
 
@@ -238,13 +223,12 @@ body {
     pointer-events: none;
 }
 
-
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
 
-/* WAX SEAL */
+/* wax seal */
 
 .wax-seal {
     position: absolute;
@@ -255,7 +239,8 @@ body {
     width: 62px;
     height: 62px;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%,-50%);
 
     border-radius: 50%;
 
@@ -268,7 +253,8 @@ body {
             #a93840 100%
         );
 
-    border: 3px solid rgba(255,255,255,0.20);
+    border:
+        3px solid rgba(255,255,255,0.20);
 
     box-shadow:
         0 5px 12px rgba(90,35,40,0.27),
@@ -278,7 +264,6 @@ body {
     z-index: 6;
 }
 
-
 .wax-seal::before {
     content: "";
 
@@ -287,9 +272,9 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,0.24);
+    border:
+        1px solid rgba(255,255,255,0.24);
 }
-
 
 .wax-seal::after {
     content: "";
@@ -303,10 +288,11 @@ body {
     height: 24px;
 
     transform:
-        translate(-50%, -50%)
+        translate(-50%,-50%)
         rotate(45deg);
 
-    border: 2px solid rgba(255,255,255,0.42);
+    border:
+        2px solid rgba(255,255,255,0.42);
 
     border-left: 0;
     border-top: 0;
@@ -314,13 +300,14 @@ body {
     opacity: 0.7;
 }
 
-
 .envelope-instruction {
     margin-top: 28px;
 
     color: #8b5d68;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 20px;
     font-weight: 600;
@@ -331,9 +318,9 @@ body {
 }
 
 
-/* ================================================= */
-/* MAIN INVITATION */
-/* ================================================= */
+/* =========================
+   MAIN INVITATION
+========================= */
 
 .main-invitation {
     width: 100%;
@@ -342,9 +329,9 @@ body {
 }
 
 
-/* ================================================= */
-/* INDIVIDUAL PAGES */
-/* ================================================= */
+/* =========================
+   INDIVIDUAL PAGES
+========================= */
 
 .invitation-page {
     position: relative;
@@ -362,10 +349,8 @@ body {
     background: #fdf9f7;
 }
 
-
 .page-frame {
     position: absolute;
-
     inset: 0;
 
     z-index: 0;
@@ -374,12 +359,31 @@ body {
         url("images/floral-frame-cropped.jpg");
 
     background-repeat: no-repeat;
+
     background-position: center center;
+
     background-size: cover;
 
     transform: scale(1.015);
 }
 
+.page-frame2 {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("images/pink.png");
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    background-size: cover;
+
+    transform: scale(1.015);
+}
 
 .invitation-page::after {
     content: "";
@@ -387,13 +391,13 @@ body {
     position: absolute;
     inset: 0;
 
-    background: rgba(255, 250, 248, 0.08);
+    background:
+        rgba(255,250,248,0.08);
 
     z-index: 1;
 
     pointer-events: none;
 }
-
 
 .page-content {
     position: relative;
@@ -413,17 +417,18 @@ body {
     align-items: center;
 
     text-align: center;
+
+    color: black;
 }
 
 
-/* ================================================= */
-/* PAGE 1 */
-/* ================================================= */
+/* =========================
+   PAGE 1
+========================= */
 
 .intro-content {
     justify-content: center;
 }
-
 
 .intro-small,
 .intro-celebrate,
@@ -433,31 +438,33 @@ body {
     color: #765d63;
 }
 
-
 .intro-small {
     font-size: 18px;
+
     letter-spacing: 3px;
+
     font-weight: 600;
 }
-
 
 .magical-title {
     margin: 18px 0 20px;
 
     color: #a76578;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 80px;
+
     font-weight: 400;
 
     line-height: 0.9;
 
     text-shadow:
         1px 1px 0 rgba(255,255,255,0.7),
-        0 5px 15px rgba(100, 60, 70, 0.10);
+        0 5px 15px rgba(100,60,70,0.10);
 }
-
 
 .intro-celebrate {
     margin-top: 12px;
@@ -469,18 +476,19 @@ body {
     font-weight: 600;
 }
 
-
 .intro-name {
     margin: 10px 0 0;
 
     color: #a76578;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 40px;
+
     font-weight: 400;
 }
-
 
 .birthday-title,
 .dedication-title {
@@ -491,15 +499,15 @@ body {
     font-weight: 600;
 }
 
-
 .and-text {
     margin: 5px 0;
 
     font-size: 22px;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 }
-
 
 .small-line {
     width: 65px;
@@ -511,123 +519,77 @@ body {
 }
 
 
-/* ================================================= */
-/* PAGE 2 : ONE */
-/* ================================================= */
+/* =========================
+   PAGE 2
+   PHOTO ONLY
+========================= */
+
+.one-page {
+    position: relative;
+
+    min-height: 760px;
+
+    background: #f4dce2;
+}
+
+.one-page .page-frame {
+    opacity: 0.25;
+}
 
 .one-content {
     position: relative;
 
-    justify-content: flex-start;
+    min-height: 760px;
 
-    padding-top: 70px;
-}
-
-
-.one-photo {
-    position: relative;
-
-    width: 360px;
-    height: 460px;
-
-    max-width: 100%;
+    padding: 35px 30px 45px;
 
     overflow: hidden;
 
-    border-radius: 50%;
+    isolation: isolate;
 
-    margin: 0 auto;
-
-    border: 8px solid rgba(255,255,255,0.88);
-
-    box-shadow:
-        0 10px 28px rgba(80,55,60,0.16);
+    display: block;
 }
 
+.one-photo {
+    position: absolute;
+
+    top: 150px;
+    left: 50%;
+
+    width: 400px;
+    height: 400px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 4;
+
+    overflow: hidden;
+
+    background: #f8eef0;
+
+    border:
+        1px solid rgba(118,93,99,0.12);
+
+    box-shadow:
+        0 10px 25px rgba(90,55,65,0.10);
+}
 
 .one-photo img {
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    object-position: center top;
-
-    border-radius: 50%;
+    object-position: center;
 }
 
 
-.giant-one {
-    position: absolute;
-
-    left: 50%;
-    top: 390px;
-
-    width: 360px;
-    height: 190px;
-
-    transform: translateX(-50%);
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 250px;
-    font-weight: 400;
-
-    color: #a76578;
-
-    pointer-events: none;
-
-    z-index: 3;
-}
-
-
-.giant-one span {
-    position: absolute;
-
-    display: block;
-
-    line-height: 0.9;
-
-    text-shadow:
-        1px 1px 0 rgba(255,255,255,0.65),
-        2px 3px 0 rgba(154,91,108,0.10),
-        0 8px 18px rgba(100,60,70,0.10);
-}
-
-
-/* O */
-
-.giant-one span:nth-child(1) {
-    left: 20px;
-    top: 35px;
-
-    transform: rotate(0deg);
-}
-
-
-/* N */
-
-.giant-one span:nth-child(2) {
-    left: 130px;
-    top: 60px;
-
-    transform: rotate(0deg);
-}
-
-
-/* E */
-
-.giant-one span:nth-child(3) {
-    right: 40px;
-    top: 35px;
-
-    transform: rotate(0deg);
-}
-
-
-/* ================================================= */
-/* PAGE 3 ONWARD */
-/* ================================================= */
+/* =========================
+   PAGE 3 ONWARD
+========================= */
 
 .church-page,
 .party-page,
@@ -636,9 +598,10 @@ body {
 .countdown-page,
 .rsvp-page,
 .closing-page {
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 }
-
 
 .church-page h2,
 .party-page h2,
@@ -647,7 +610,9 @@ body {
 .countdown-page h2,
 .rsvp-page h2,
 .closing-page h2 {
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     color: #a76578;
 
@@ -660,7 +625,6 @@ body {
     margin: 8px 0 18px;
 }
 
-
 .church-page p,
 .party-page p,
 .dress-page p,
@@ -668,6 +632,7 @@ body {
 .countdown-page p,
 .rsvp-page p,
 .closing-page p,
+
 .church-page strong,
 .party-page strong,
 .dress-page strong,
@@ -675,6 +640,7 @@ body {
 .countdown-page strong,
 .rsvp-page strong,
 .closing-page strong,
+
 .church-page span,
 .party-page span,
 .dress-page span,
@@ -682,31 +648,30 @@ body {
 .countdown-page span,
 .rsvp-page span,
 .closing-page span {
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 }
 
 
-/* ================================================= */
-/* READABILITY CARD */
-/* ================================================= */
+/* readability card */
 
 .readability-card {
     width: 100%;
-
     max-width: 440px;
 
     padding: 22px 25px;
 
     margin-bottom: 24px;
 
-    background: rgba(255, 250, 249, 0.88);
+    background:
+        rgba(255,250,249,0.88);
 
     border-radius: 18px;
 
     box-shadow:
         0 7px 22px rgba(90,55,65,0.08);
 }
-
 
 .eyebrow {
     color: #876a71;
@@ -718,7 +683,6 @@ body {
     margin-bottom: 5px;
 }
 
-
 .intro-text {
     max-width: 380px;
 
@@ -729,16 +693,15 @@ body {
     font-size: 22px;
 
     line-height: 1.2;
+
+    color:black;
 }
 
 
-/* ================================================= */
-/* EVENT DETAILS */
-/* ================================================= */
+/* event details */
 
 .event-details {
     width: 100%;
-
     max-width: 430px;
 
     display: flex;
@@ -750,7 +713,6 @@ body {
     margin-bottom: 24px;
 }
 
-
 .detail-item {
     display: flex;
 
@@ -761,7 +723,6 @@ body {
     gap: 2px;
 }
 
-
 .detail-label {
     color: #9a6e79;
 
@@ -770,7 +731,6 @@ body {
     line-height: 1;
 }
 
-
 .detail-item strong {
     color: #765a62;
 
@@ -778,7 +738,6 @@ body {
 
     line-height: 1.05;
 }
-
 
 .detail-item > span:last-child {
     color: #765a62;
@@ -789,13 +748,10 @@ body {
 }
 
 
-/* ================================================= */
-/* VENUE IMAGE */
-/* ================================================= */
+/* venue image */
 
 .venue-image {
     width: 100%;
-
     max-width: 410px;
 
     overflow: hidden;
@@ -808,21 +764,17 @@ body {
         0 8px 22px rgba(75,50,55,0.13);
 }
 
-
 .venue-image img {
     display: block;
 
     width: 100%;
-
     height: auto;
 
     object-fit: cover;
 }
 
 
-/* ================================================= */
-/* MAP BUTTON */
-/* ================================================= */
+/* maps button */
 
 .maps-button {
     display: inline-block;
@@ -839,7 +791,9 @@ body {
 
     text-decoration: none;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 20px;
 
@@ -853,7 +807,6 @@ body {
         background 0.2s ease;
 }
 
-
 .maps-button:hover {
     transform: translateY(-2px);
 
@@ -861,13 +814,10 @@ body {
 }
 
 
-/* ================================================= */
-/* MAP */
-/* ================================================= */
+/* map */
 
 .map-container {
     width: 100%;
-
     max-width: 410px;
 
     height: 210px;
@@ -880,43 +830,40 @@ body {
         0 7px 20px rgba(70,50,55,0.10);
 }
 
-
 .map-container iframe {
     width: 100%;
-
     height: 100%;
 
     border: 0;
 }
 
 
-/* ================================================= */
-/* DRESS CODE */
-/* ================================================= */
+/* =========================
+   DRESS CODE
+========================= */
 
 .color-section,
 .avoid-section {
     width: 100%;
-
     max-width: 420px;
 
     margin-top: 8px;
 }
 
-
 .color-section h2,
 .avoid-section h2 {
     color: #a76578;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    font-size: 30px;
+    font-size: 28px;
 
     font-weight: 400;
 
     margin-bottom: 5px;
 }
-
 
 .color-description {
     color: #705960;
@@ -928,7 +875,6 @@ body {
     margin-bottom: 15px;
 }
 
-
 .color-grid {
     display: flex;
 
@@ -938,7 +884,6 @@ body {
 
     gap: 15px;
 }
-
 
 .color-option {
     display: flex;
@@ -956,57 +901,53 @@ body {
     font-size: 20px;
 }
 
-
 .color-circle {
     width: 34px;
     height: 34px;
 
     border-radius: 50%;
 
-    border: 2px solid rgba(80,60,60,0.12);
+    border:
+        2px solid rgba(80,60,60,0.12);
 
     display: block;
 }
-
 
 .color-circle.green {
     background: #b8d8bd;
 }
 
-
 .color-circle.purple {
     background: #cdb8df;
 }
-
 
 .color-circle.orange {
     background: #f4c49b;
 }
 
-
 .color-circle.blue {
     background: #b7d5e8;
 }
-
 
 .avoid-section {
     margin-top: 27px;
 }
 
 
-/* ================================================= */
-/* GIFT IDEAS */
-/* ================================================= */
+/* =========================
+   GIFT PAGE
+========================= */
 
 .gift-page .page-content {
     justify-content: center;
 }
 
-
 .gift-page h2 {
     color: #a76578;
 
-    font-family: "Great Vibes", cursive;
+    font-family:
+        "Great Vibes",
+        cursive;
 
     font-size: 39px;
 
@@ -1017,7 +958,6 @@ body {
     margin: 8px 0 18px;
 }
 
-
 .gift-text {
     max-width: 370px;
 
@@ -1025,7 +965,9 @@ body {
 
     color: #68545a;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 25px;
 
@@ -1033,34 +975,33 @@ body {
 }
 
 
-/* ================================================= */
-/* COUNTDOWN */
-/* ================================================= */
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown-page .page-content {
     justify-content: center;
 }
 
-
 .countdown {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 18px;
 
     width: 100%;
-
     max-width: 390px;
 
     margin-top: 20px;
 }
 
-
 .count-box {
     padding: 22px 12px;
 
-    background: rgba(255,250,249,0.85);
+    background:
+        rgba(255,250,249,0.85);
 
     border-radius: 18px;
 
@@ -1068,13 +1009,14 @@ body {
         0 7px 20px rgba(80,55,60,0.08);
 }
 
-
 .count-box span {
     display: block;
 
     color: #a76578;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 36px;
 
@@ -1083,7 +1025,6 @@ body {
     font-weight: 600;
 }
 
-
 .count-box small {
     display: block;
 
@@ -1091,11 +1032,12 @@ body {
 
     color: #80656c;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 17px;
 }
-
 
 .countdown-message {
     max-width: 390px;
@@ -1104,7 +1046,9 @@ body {
 
     color: #705960;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 24px;
 
@@ -1112,25 +1056,24 @@ body {
 }
 
 
-/* ================================================= */
-/* RSVP */
-/* ================================================= */
+/* =========================
+   RSVP
+========================= */
 
 .form-container {
     width: 100%;
-
     max-width: 450px;
 
     overflow: hidden;
 
     border-radius: 15px;
 
-    background: rgba(255,255,255,0.9);
+    background:
+        rgba(255,255,255,0.9);
 
     box-shadow:
         0 8px 24px rgba(70,50,55,0.10);
 }
-
 
 .form-container iframe {
     display: block;
@@ -1141,14 +1084,13 @@ body {
 }
 
 
-/* ================================================= */
-/* CLOSING PAGE */
-/* ================================================= */
+/* =========================
+   CLOSING PAGE
+========================= */
 
 .closing-page .page-content {
     justify-content: center;
 }
-
 
 .closing-text {
     max-width: 400px;
@@ -1160,7 +1102,6 @@ body {
     line-height: 1.2;
 }
 
-
 .closing-date {
     margin-top: 30px;
 
@@ -1170,118 +1111,62 @@ body {
 }
 
 
-/* ================================================= */
-/* MOBILE */
-/* ================================================= */
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+
+    .one-page {
+        min-height: 760px;
+    }
+
+    .one-content {
+        min-height: 760px;
+
+        padding:
+            30px
+            20px
+            40px;
+    }
+
+    .one-photo {
+        top: 35px;
+
+        width: 275px;
+        height: 275px;
+    }
 
     .envelope {
         width: 280px;
         height: 190px;
     }
 
-
     .envelope-flap {
         border-left-width: 140px;
-
         border-right-width: 140px;
-
         border-top-width: 105px;
     }
-
 
     .envelope-instruction {
         font-size: 18px;
 
-        padding: 0 25px;
+        padding:
+            0 25px;
     }
-
 
     .page-content {
-        padding: 55px 30px;
+        padding:
+            55px 30px;
     }
-
 
     .magical-title {
         font-size: 70px;
     }
 
-
     .intro-name {
         font-size: 38px;
     }
-
-
-    /* PAGE 2 */
-
-    .one-content {
-        padding-top: 55px;
-    }
-
-
-    .one-photo {
-        width: 290px;
-        height: 390px;
-    }
-
-
-    .giant-one {
-        width: 320px;
-
-        height: 170px;
-
-        top: 335px;
-
-        font-size: 140px;
-    }
-
-
-    .giant-one span:nth-child(1) {
-        left: 15px;
-        top: 30px;
-    }
-
-
-    .giant-one span:nth-child(2) {
-        left: 115px;
-        top: 52px;
-    }
-
-
-    .giant-one span:nth-child(3) {
-        right: 30px;
-        top: 30px;
-    }
-
-
-    /* MUSIC */
-
-    .music-player {
-        max-width: 300px;
-
-        margin-top: 8px;
-
-        padding: 10px 12px;
-    }
-
-
-    .music-button {
-        width: 38px;
-        height: 38px;
-
-        font-size: 15px;
-    }
-
-
-    .music-label {
-        font-size: 13px;
-
-        letter-spacing: 1.2px;
-    }
-
-
-    /* PAGE TITLES */
 
     .church-page h2,
     .party-page h2,
@@ -1293,59 +1178,62 @@ body {
         font-size: 37px;
     }
 
-
     .eyebrow {
         font-size: 17px;
     }
-
 
     .intro-text {
         font-size: 20px;
     }
 
-
     .detail-label {
         font-size: 17px;
     }
-
 
     .detail-item strong {
         font-size: 24px;
     }
 
-
     .detail-item > span:last-child {
         font-size: 18px;
     }
-
 
     .color-description {
         font-size: 19px;
     }
 
-
     .color-option {
         font-size: 19px;
     }
-
 
     .gift-text {
         font-size: 22px;
     }
 
-
     .countdown-message {
         font-size: 22px;
     }
-
 
     .closing-text {
         font-size: 23px;
     }
 
-
     .closing-date {
         font-size: 32px;
     }
+}
 
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+    .one-photo {
+        width: 245px;
+        height: 245px;
+
+        top: 35px;
+    }
 }

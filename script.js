@@ -1,22 +1,26 @@
-/* ================================================= */
-/* ENVELOPE */
-/* ================================================= */
+/* =========================
+   ENVELOPE + MUSIC
+========================= */
 
-const envelope = document.getElementById("envelope");
-const openingScreen = document.getElementById("openingScreen");
-const backgroundMusic = document.getElementById("backgroundMusic");
+const envelope =
+    document.getElementById("envelope");
+
+const openingScreen =
+    document.getElementById("openingScreen");
+
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
 
 
 envelope.addEventListener("click", () => {
 
-    /* Open the envelope */
     envelope.classList.add("open");
 
-
-    /* Start the background music */
+    /* Start music */
     backgroundMusic.volume = 0.55;
 
-    const playMusic = backgroundMusic.play();
+    const playMusic =
+        backgroundMusic.play();
 
     if (playMusic !== undefined) {
 
@@ -31,8 +35,7 @@ envelope.addEventListener("click", () => {
 
     }
 
-
-    /* Hide the opening screen */
+    /* Hide opening screen */
     setTimeout(() => {
 
         openingScreen.classList.add("hidden");
@@ -42,71 +45,84 @@ envelope.addEventListener("click", () => {
 });
 
 
-/* ================================================= */
-/* COUNTDOWN */
-/* ================================================= */
+/* =========================
+   COUNTDOWN
+========================= */
 
-const targetDate = new Date(
-    "2026-10-17T10:00:00+08:00"
-).getTime();
+const targetDate =
+    new Date(
+        "2026-10-17T10:00:00+08:00"
+    ).getTime();
 
 
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const difference = targetDate - now;
+    const difference =
+        targetDate - now;
 
 
     if (difference <= 0) {
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
 
         return;
     }
 
 
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-    );
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-    );
+    const hours =
+        Math.floor(
+            (difference %
+                (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
 
 
-    const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-    );
+    const minutes =
+        Math.floor(
+            (difference %
+                (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
 
 
-    const seconds = Math.floor(
-        (difference / 1000) % 60
-    );
+    const seconds =
+        Math.floor(
+            (difference %
+                (1000 * 60)) /
+            1000
+        );
 
 
     document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
+        days;
 
     document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
+        hours;
 
     document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
+        minutes;
 
     document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-
+        seconds;
 }
 
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+    updateCountdown,
+    1000
+);
